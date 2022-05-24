@@ -2,7 +2,7 @@ const main = document.querySelector('#main')
 const qna = document.querySelector('#qna')
 const result = document.querySelector('#result')
 
-const endPoint = 10;
+const endPoint = 1;
 
 const select = [0, 0, 0, 0];
 
@@ -49,16 +49,27 @@ function setResult(){
     let point = calResult();
     const resultIntro = document.querySelector('.resultIntro');
     resultIntro.innerHTML = infoList[point].nameIntro;
+
     const resultName = document.querySelector('.resultName');
     resultName.innerHTML = infoList[point].name;
-    const resultImg = document.querySelector('.resultImg');
-    resultName.innerHTML = `<img src="./img/image-${point}.png" alt="img-${point}"></img>`
+
+    var resultImg = document.createElement('img');
+    const imgDiv = document.querySelector("#resultImg");
+    var imgURL = 'img/image-' + point + '.png';
+    resultImg.src = imgURL;
+    resultImg.alt = point;
+    resultImg.classList.add('img-fluid');
+    imgDiv.appendChild(resultImg);
+
     const resultDescTitle1 = document.querySelector('.resultDescTitle1');
     resultDescTitle1.innerHTML = infoList[point].descTitle1;
+
     const resultDesc1 = document.querySelector('.resultDesc1');
     resultDesc1.innerHTML = infoList[point].desc1;
+
     const resultDescTitle2 = document.querySelector('.resultDescTitle2');
     resultDescTitle2.innerHTML = infoList[point].descTitle2;
+    
     const resultDesc2 = document.querySelector('.resultDesc2');
     resultDesc2.innerHTML = infoList[point].desc2;
 }
